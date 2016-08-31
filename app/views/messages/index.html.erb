@@ -9,6 +9,8 @@
       <div class="media-body">
         <h4 class="media-heading">[No.<%= message.id %>]<%= message.name %></h4>
         <%= message.body %>
+        (<%= link_to "edit" , edit_message_path(message) %>)
+        <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
       </div>
     </div>
     <% end %>
