@@ -2,18 +2,30 @@
   <div class="panel-heading">
     メッセージ一覧
   </div>
-  
+
   <div class="panel-body">
+
     <% @messages.each do |message| %>
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">[No.<%= message.id %>]<%= message.name %></h4>
-        <%= message.body %>
-        (<%= link_to "edit" , edit_message_path(message) %>)
-        <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-      </div>
-    </div>
+    <blockquote>
+      <p><%= message.body %></p>
+      <footer>
+        <%= message.name %>
+        <% #年齢の値が存在する場合だけ表示 %>
+        <% if message.try(:age) %>
+          (<%= message.age %>歳)
+        <% end %>
+        <div class="btn-group btn-group-xs" role="group" aria-label="...">
+          <%= link_to edit_message_path(message), class: "btn btn-default" do %>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to message, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-default" do %>
+            <i class="fa fa-close" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </footer>
+    </blockquote>
     <% end %>
+
   </div><!--panel-body-->
 
   <div class="panel-footer">

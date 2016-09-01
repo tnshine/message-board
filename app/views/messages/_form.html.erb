@@ -14,15 +14,21 @@
       <% end %>
 
       <div class="form-group">
-        <label for="message_name" class="col-sm-2 control-label">お名前</label>
+        <label for="message_name" class="col-sm-2 control-label">お名前　<span class="label label-danger">必須</span></label>
         <div class="col-sm-10">
-            <%= f.text_field :name, :placeholder => "お名前", class: "form-control" %>
+            <%= f.text_field :name, :placeholder => "お名前(20文字以下)", class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <label for="message_body" class="col-sm-2 control-label">メッセージ</label>
+        <label for="message_age" class="col-sm-2 control-label">年齢</label>
         <div class="col-sm-10">
-          <%= f.text_area :body, :placeholder => "メッセージを入力しましょう", class: "form-control" %>
+            <%= f.text_field :age, :placeholder => "年齢(半角数字)", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message_body" class="col-sm-2 control-label">メッセージ　<span class="label label-danger">必須</span></label>
+        <div class="col-sm-10">
+          <%= f.text_area :body, :placeholder => "2文字以上、30文字以下でメッセージを入力しましょう", class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
